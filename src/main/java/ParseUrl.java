@@ -44,7 +44,7 @@ public class ParseUrl extends RecursiveAction {
         List<ParseUrl> parseUrls = listHref.stream()
                 .filter(s -> !s.equals("/") && !s.startsWith("//") && !s.endsWith("#"))
                 .map(s -> s.startsWith("/") ? startUrl + s : s)
-                .filter(s -> s.startsWith(url) && !s.equals(url) && !s.equals(url+ "/")  )
+                .filter(s -> s.startsWith(url) && !s.equals(url))
                 .distinct()
                 .sorted()
                 .map(s -> new ParseUrl(s, shift + "\t", list))
